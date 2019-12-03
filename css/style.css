@@ -1,0 +1,150 @@
+@charset "UTF-8";
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*, :before, :after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
+  color: #343d43;
+  font: normal normal 16px/1.5 Lato, sans-serif;
+}
+
+header, footer {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+main {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+img,
+iframe,
+video {
+  max-width: 100%;
+}
+
+a img {
+  border: none;
+}
+
+a {
+  color: #8aae5a;
+  text-decoration: none;
+}
+
+img {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+audio {
+  display: block;
+  width: 100%;
+}
+
+p {
+  margin: 0 0 1.5em;
+}
+p:last-child {
+  margin: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+*:invalid {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+/*элементы форм */
+input, textarea, button, select {
+  font: inherit;
+  color: inherit;
+}
+
+textarea {
+  resize: none;
+  overflow: auto;
+}
+
+/*кнопки */
+button,
+[type=submit],
+[type=reset],
+[type=image] {
+  cursor: pointer;
+}
+
+/*заголовки */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1em;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: normal;
+}
+
+h2 {
+  font-size: 30px;
+  line-height: normal;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+h4 {
+  font-size: 21px;
+  line-height: 1.4285714286;
+}
+
+/*списки */
+ul, ol {
+  margin: 0 0 1em;
+}
+
+/*таблицы */
+/*контейнеры */
+.wrapper {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/*ШАПКА */
+/*ОСНОВНОЕ СОДЕРЖИМОЕ */
+/*ПОДВАЛ */
+/*АДАПТИВ */
+@media(max-width:1199px) {
+  .wrapper {
+    max-width: 992px;
+  }
+}
