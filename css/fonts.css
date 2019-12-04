@@ -176,3 +176,6 @@
 .icon-thumb-down-o:before {
   content: "\e91a";
 }
+.icon-user:before {
+  content: "\e91b";
+}
