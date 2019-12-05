@@ -33,10 +33,10 @@
 							<option>РУС</option>
 							<option>EN</option>
 						</select>
-						<div class="select__output"><img class="select__icon" src="img/countries/ru.svg" alt=""> <span>РУС</span></div>
+						<div class="select__output"><img class="select__icon" src="img/countries/russia.svg" alt=""> <span>РУС</span></div>
 						<ul class="select__list">
-							<li><img class="select__icon" src="img/countries/ru.svg" alt=""> <span>РУС</span></li>
-							<li><img class="select__icon" src="img/countries/en.svg" alt=""> <span>EN</span></li>
+							<li><img class="select__icon" src="img/countries/russia.svg" alt=""> <span>РУС</span></li>
+							<li><img class="select__icon" src="img/countries/england.svg" alt=""> <span>EN</span></li>
 						</ul>
 					</div>
 				</div>
@@ -59,16 +59,47 @@
 						<span>Сравнение</span>
 					</a>
 					<div class="basket-widget header__basket">
-						<a href="#" class="basket-widget__trigger">
+						<a href="#" class="basket-widget__trigger"> <!--data-amount="3"-->
 							<i class="icon-cart"></i>
-							<span>0 товаров</span>
+							<span>0 товаров <!--2 490 ₽--></span>
 						</a>
 						<div class="basket-widget__body">
 							<div class="basket-widget__item">
+								<img src="img/goods/8.jpg" alt="" class="basket-widget__img">
+								<div class="basket-widget__text">
+									<h4 class="basket-widget__title">Alcotox - Cредство для борьбы с алкоголизмом</h4>
+									<div class="basket-widget__bar">
+										<span class="basket-widget__price">230 ₽</span>
+										<span class="basket-widget__amount">3</span>
+										<i class="icon-close-circle basket-widget__remove-btn"></i>
+									</div>
+								</div>
+							</div>
+							<div class="basket-widget__item">
 								<img src="img/goods/0.jpg" alt="" class="basket-widget__img">
 								<div class="basket-widget__text">
-									
+									<h4 class="basket-widget__title">Alcotox - Cредство для борьбы с алкоголизмом</h4>
+									<div class="basket-widget__bar">
+										<span class="basket-widget__price">230 ₽</span>
+										<span class="basket-widget__amount">1</span>
+										<i class="icon-close-circle basket-widget__remove-btn"></i>
+									</div>
 								</div>
+							</div>
+							<div class="basket-widget__item">
+								<img src="img/goods/1.jpg" alt="" class="basket-widget__img">
+								<div class="basket-widget__text">
+									<h4 class="basket-widget__title">Alcotox - Cредство для борьбы с алкоголизмом</h4>
+									<div class="basket-widget__bar">
+										<span class="basket-widget__price">230 ₽</span>
+										<span class="basket-widget__amount">6</span>
+										<i class="icon-close-circle basket-widget__remove-btn"></i>
+									</div>
+								</div>
+							</div>
+							<div class="basket-widget__footer">
+								<a href="#">Посмотреть корзину</a>
+								<a href="#" class="btn btn--oval btn--block basket-widget__btn">Оформить заказ</a>
 							</div>
 						</div>
 					</div>

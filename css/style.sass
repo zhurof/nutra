@@ -44,6 +44,7 @@ body
 	min-height: 100vh
 	color: #343d43
 	font: normal normal 16px/1.5 Lato,sans-serif
+	background-color: #f9f9f5
 header,footer
 	flex: 0 0 auto
 
@@ -135,6 +136,7 @@ select
 		padding: 1em 0
 		border: 1px solid #f9f9f5
 		position: absolute
+		z-index: 3
 		line-height: 1
 		top: 100%
 		left: 50%
@@ -144,7 +146,16 @@ select
 		width: max-content
 		max-width: 220px
 		font-size: 14/16*1em
-		box-shadow: 0 0 10px rgba(0,0,0,.12)		
+		box-shadow: 0 0 10px rgba(0,0,0,.12)
+		max-height: 320px
+		overflow: auto
+		&::-webkit-scrollbar
+			width: 3px
+			background-color: transparent
+		&::-webkit-scrollbar-thumb
+			background-color: $green
+			width: 3px
+
 		>li
 			display: flex
 			align-items: center
@@ -174,6 +185,37 @@ button,
 [type=reset],
 [type=image]
 	cursor: pointer
+.btn
+	appearance: none
+	display: inline-block
+	vertical-align: top
+	font: normal bold 14px/48px Lato,sans-serif
+	border: 1px solid $green
+	background-color: $green
+	color: #fff
+	text: 
+		shadow: none
+		align: center
+		transform: none
+		decoration: none
+	white-space: nowrap
+	overflow: hidden
+	text-overflow: ellipsis
+	padding: 0 35px
+	user-select: none
+	&--oval
+		border-radius: 100px
+	&--gray
+		background-color: #a2a9ae
+	&--thin
+		background-color: transparent
+		color: #343d43
+		border-color: #a2a9ae
+	&--block
+		display: block
+		width: 100%
+		padding: 0 10px
+	
 
 /*заголовки*/
 h1,h2,h3,h4,h5,h6
@@ -215,12 +257,96 @@ ul,ol
 .basket-widget
 	position: relative
 	&__trigger
+		display: block
 		color: inherit
+		padding: 19px 0
+		position: relative
+		&[data-amount]:before
+			content: attr(data-amount)
+			display: inline-block
+			position: absolute
+			top: 14px
+			left: 15px
+			width: 19px
+			height: 19px
+			border-radius: 50%
+			text-align: center
+			line-height: 19px
+			color: #fff
+			font-size: 12px
+			background-color: $red
+			
 		i
 			vertical-align: middle
 			font-size: 26/16*1em
 			color: $gray
 			margin-right: 8px
+	&__body
+		display: none
+		width: 325px
+		position: absolute
+		top: 100%
+		right: 0
+		border-top: 3px solid $green
+		background-color: #fff
+		padding: 9px 20px 30px
+		box-shadow: 0 0 10px rgba(0,0,0,.12)
+		z-index: 2
+		&:before
+			content: ''
+			display: block
+			position: absolute
+			bottom: 100%
+			right: 35px
+			border-bottom: 7px solid $green
+			border-left: 7px solid transparent
+			border-right: 7px solid transparent
+	&__item
+		display: flex
+		align-items: flex-start
+		padding: 18px 0 22px
+		border-top: 1px solid #efeee7
+		&:first-child
+			border-top: none
+	&__img
+		width: 50px
+		flex: 0 0 auto
+		margin-right: 15px
+	&__text
+		flex: 1 1 calc(100% - 65px)
+	&__title
+		font: inherit
+		font-weight: bold
+		margin: 0 0 .4em
+	&__bar
+		display: flex
+		align-items: baseline
+		font-size: 18px
+		line-height: 1.1
+	&__price
+		display: inline-block
+		margin-right: 10px
+		font-weight: 600
+	&__amount
+		font-weight: bold
+		margin-right: 10px
+		&:before
+			content: 'x'
+			display: inline-block
+			color: $gray
+			font-weight: 400
+			margin-right: 14px
+	&__remove-btn
+		color: $red
+		font-size: 20px
+		line-height: 1
+		margin-left: auto
+		cursor: pointer
+	&__footer
+		text-align: center
+		margin: 10px 0 0
+	&__btn
+		margin-top: 27px
 .catalog-menu
 	padding: 40px 30px
 	&__close
@@ -241,6 +367,7 @@ ul,ol
 	&__title
 		margin: 0 0 .3em
 .header
+	background-color: #fff
 	&__topline
 		display: flex
 		align-items: center
@@ -395,7 +522,247 @@ ul,ol
 		left: 0
 		width: 100%
 /*ОСНОВНОЕ СОДЕРЖИМОЕ*/
+.card
+	width: 282px
+	margin: 0 15px 30px
+	background-color: #fff
+	padding: 30px 20px 16px 16px
+	display: flex
+	flex-direction: column
+	text-align: center
+	position: relative
+	outline-offset: -2px
+	&.slick-slide
+		display: flex
+		height: auto
+		flex: 1 1 auto
+		margin-bottom: 0
+	&__discount
+		position: absolute
+		top: 0
+		right: 0
+		font-size: 13px
+		line-height: 35px
+		padding: 0 1em 0 1.3em
+		font-weight: bold
+		color: #fff
+		background-color: $red
+		user-select: none
+	&__title
+		margin: 0 0 .4em
+	&__description
+		font-size: 14px
+		line-height: 24/14*1
+		color: #7f8588
+	&__rating
+		color: #e4e4e4
+		font-size: 21px
+		letter-spacing: .4em
+		margin: 0 0 .25em
+		&-star--active
+			color: $yellow
+	&__img
+		display: block
+		width: 100%
+		height: 263px
+		object-fit: contain
+		object-position: center
+		margin: auto auto 0
+	&__tools
+		display: flex
+		flex-wrap: wrap
+		align-items: center
+		justify-content: center
+		margin: 0 0 27px
+	&__favourites
+		display: inline-block
+		color: $gray
+		font-size: 14px
+		line-height: 24/14*1
+		user-select: none
+		cursor: pointer
+		margin: 0 10px
+		&:before
+			content: '\e90f'
+			font-family: icomoon
+			font-size: 24/14*1em
+			line-height: 1
+			vertical-align: -.2em
+			margin-right: .5em
+		&--active:before
+			content: '\e90e'
+			color: $red
+	&__collation
+		font-size: 14px
+		color: $gray
+		line-height: 24/14*1
+		user-select: none
+		cursor: pointer
+		margin: 0 10px
+		&:before
+			content: '\e910'
+			font-family: icomoon
+			font-size: 18/14*1em
+			line-height: 24/18*1
+			vertical-align: -.2em
+			margin-right: 6/18*1em
+		&--active:before
+			color: $red
+	&__footer
+		border-top: 1px solid #efeee7
+		padding: 20px 10px 0 15px
+		display: flex
+		align-items: flex-start
+		justify-content: space-between
+	&__price-wrapper
+		text-align: left
+	&__old-price
+		color: $gray
+		line-height: 1
+		font-weight: 600
+		text-decoration: line-through
+	&__price
+		font-size: 21px
+		font-weight: 600
+		&:only-child
+			font-size: 24px
+	&__btn
+		appearance: none
+		background-color: $green
+		color: #fff
+		border: none		
+		text-align: center
+		color: #fff
+		font-size: 14px
+		border-radius: 100px
+		user-select: none
+		flex: 0 0 auto
+		white-space: nowrap
+		overflow: hidden
+		min-width: 40px
+		padding: 0 12px
+		&:before
+			content: 'Купить'
+			display: none
+			line-height: 40px
+			vertical-align: middle
+		&:after
+			content: '\e908'
+			font-size: 16px
+			line-height: 40px
+			font-family: icomoon
+			vertical-align: middle
+.category-block
+	padding: 40px 0
+	&--highlighted
+		background-color: #f3f5ed
+		padding: 80px 0
+		margin: 0 0 40px
+	&__head
+		display: flex
+		align-items: center
+		margin: 0 0 30px
+	&__title
+		margin: 0 auto 0 0
+		text-transform: uppercase
+	&__btn
+		margin: 0 30px
+	&__arrow
+		display: inline-block
+		vertical-align: top
+		width: 50px
+		height: 50px
+		border: 1px solid #a2a9ae
+		text-align: center
+		border-radius: 50%
+		line-height: 48px
+		font-size: 16px
+		cursor: pointer
+		margin: 0 0 0 30px
+	&__slider
+		&:not(.slick-slider)
+			display: flex
+			flex-wrap: wrap
+			margin: 0 -15px
+		.slick-track
+			display: flex
+		.slick-list
+			margin: 0 -15px
 /*ПОДВАЛ*/
-
+.footer
+	background-color: #fff
+	&__topline
+		display: flex
+		margin: 0 -15px
+		padding: 50px 0 20px
+	&__column
+		margin: 0 15px 20px
+		flex: 1 1 auto
+	&__logo
+		display: block
+		width: 153px
+		margin: 0 0 10px
+	&__email
+		display: block
+		width: max-content
+		max-width: 100%
+		font-size: 18px
+	&__key
+		color: $gray
+	&__value
+		font-size: 18px
+		font-weight: bold
+	&__title
+		font-size: 18px
+		margin: 0 0 .3em
+	&__menu
+		+unlist
+		>li
+			margin: 0 0 .5em
+			&:last-child
+				margin-bottom: 0
+			>a
+				color: $gray
+	&__midline
+		border-top: 1px solid #efeee7
+		padding: 28px 0 15px
+	&__country-list
+		+unlist
+		>li
+			display: inline-block
+			&:after
+				content: '•'
+				color: #e4e4e4
+				display: inline-block
+			&:last-child:after
+				display: none
+			>a
+				color: $gray
+	&__country-select
+		display: none
+	&__bottomline
+		border-top: 1px solid #efeee7
+		padding: 25px 0 30px
+		text-align: center
+		color: $gray
+	&__icon
+		margin-left: 60px
+.ssl
+	display: inline-flex
+	text-align: left
+	align-items: center
+	user-select: none
+	&__icon
+		width: 22px
+		flex: 0 0 auto
+		margin: 0 10px 0 0
+	&__text
+		line-height: 1
+		font-size: 10px
+		&:first-line
+			font-size: 1.6em
+			font-weight: bold
+			color: $green
+			
 /*АДАПТИВ*/
 @import "adaptive"

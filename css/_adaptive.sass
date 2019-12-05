@@ -1,4 +1,44 @@
-﻿@media(max-width:1199px)
+﻿@media(min-width: 992px)
+	.btn
+		transition: all .2s ease-out
+		&:hover
+			background-color: $dark-green
+			border-color: $dark-green
+		&--gray:hover
+			border-color: #abb8c1
+			background-color: #abb8c1
+		&--thin:hover
+			background-color: transparent
+			border-color: $green
+			color: $green
+			box-shadow: inset 0 0 1px 1px $green
+	.catalog-menu
+		a:hover
+			color: #fff700
+	.card
+		&:hover
+			outline: 2px solid $green
+		&__btn
+			transition: all .2s ease-out
+			&:hover
+				background-color: $dark-green
+			&:before
+				display: inline-block				
+				width: 0
+				overflow: hidden
+				transition: all .3s ease-out			
+		&:hover &__btn
+			&:before
+				width: max-content
+				margin: 0 12px
+	.category-block
+		&__arrow
+			transition: all .2s ease-out
+			&:hover
+				border-color: $green
+				color: $green
+				box-shadow: inset 0 0 1px 1px $green				
+@media(max-width:1199px)
 	.wrapper
 		max-width: 992px
   
