@@ -87,14 +87,41 @@ p
 	box-shadow: none
 
 /*элементы форм*/
-input,textarea,button,select
+input,textarea,select
 	font: inherit
-	color: inherit	
-	
+	color: inherit
+	&:focus
+		border-color: $green
+	&[required]
+		background:
+			image: url(../img/red-text-star.svg)
+			repeat: no-repeat
+			position: 0 17px
+		padding-left: 10px
+	&[disabled]
+		border-color: #f9f9f9
+		background: #f9f9f9
+		color: $gray
+		padding-left: 20px
+		padding-right: 20px
+[type=text],
+[type=email],
+[type=tel],
+[type=url],
+[type=password]
+	display: block
+	width: 100%
+	font-size: 15px
+	line-height: 1
+	border: none
+	border-bottom: 2px solid rgb(162, 169, 174)
+	padding: 13.5px 0
+	margin: 0 0 14px
+	&:last-child
+		margin-bottom: 0
 textarea
 	resize: none
-	overflow: auto
-	
+	overflow: auto	
 select
 	appearance: none
 	display: block
@@ -171,14 +198,39 @@ select
 	&::-webkit-search-results-button,
 	&::-webkit-search-results-decoration
 		display: none
-		
-//[type=number]
-	-moz-appearance: textfield
-	&::-webkit-outer-spin-button,
-	&::-webkit-inner-spin-button
-		appearance: none
-		margin: 0
-		
+			
+.number-field
+	display: inline-flex
+	border: 1px solid #e4e4e4
+	border-radius: 100px
+	overflow: hidden
+	&__input
+		-moz-appearance: textfield
+		font-size: 16px
+		line-height: 1
+		font-weight: bold
+		text-align: center
+		width: 33px
+		min-width: 0
+		border: none
+		padding: 0
+		height: 38px
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button
+			appearance: none
+			margin: 0
+		&[required]
+			background: none
+			padding: 0
+	&__btn
+		width: 33px
+		line-height: 38px
+		text-align: center
+		font-size: 24px
+		font-weight: bold
+		color: $green
+		user-select: none
+		cursor: pointer
 /*кнопки*/
 button,
 [type=submit],
@@ -247,6 +299,47 @@ ul,ol
 	display: flex
 	flex-wrap: wrap
 	margin: 0 -15px
+/*модальные окна*/
+.modal-wrapper
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	z-index: 10
+	background-color: rgba(52,61,67,.898)
+	padding: 15px
+	overflow: auto
+	display: flex
+	flex-direction: column
+	.modal
+		display: block
+.modal
+	display: none
+	background-color: #fff
+	text-align: center
+	padding: 40px
+	max-width: 100%
+	margin: 0 auto
+	flex: 0 0 auto
+	position: relative
+	&__close
+		display: inline-block
+		font-size: 15px
+		line-height: 2
+		width: 2em
+		text-align: center
+		position: absolute
+		top: 14px
+		right: 11px
+		cursor: pointer		
+	&__title
+		font-size: 30px
+		font-weight: 500
+		line-height: normal
+		margin: 0 0 .75em
+	&__btn
+		margin-top: 10px
 
 /*ШАПКА*/
 .logo
@@ -509,6 +602,7 @@ ul,ol
 			border: none
 			background: none
 			user-select: none
+			color: inherit
 			&:after
 				content: '\e911'
 				font: normal normal 20px/1 icomoon
@@ -517,11 +611,21 @@ ul,ol
 	&__catalog-menu
 		display: none
 		position: absolute
+		z-index: 2
 		background: inherit
 		top: 100%
 		left: 0
 		width: 100%
 /*ОСНОВНОЕ СОДЕРЖИМОЕ*/
+.rating
+	&__star
+		display: inline-block
+		font-size: 21px
+		vertical-align: middle
+		color: #e4e4e4
+		margin: 0 .2em
+		&--active
+			color: $yellow
 .card
 	width: 282px
 	margin: 0 15px 30px
@@ -550,24 +654,23 @@ ul,ol
 		user-select: none
 	&__title
 		margin: 0 0 .4em
+		a
+			color: inherit
 	&__description
 		font-size: 14px
 		line-height: 24/14*1
 		color: #7f8588
-	&__rating
-		color: #e4e4e4
-		font-size: 21px
-		letter-spacing: .4em
-		margin: 0 0 .25em
-		&-star--active
-			color: $yellow
-	&__img
+	&__rating		
+		margin: 0 0 12px		
+	&__pic
 		display: block
-		width: 100%
-		height: 263px
-		object-fit: contain
-		object-position: center
 		margin: auto auto 0
+		img
+			display: block
+			width: 100%
+			height: 263px
+			object-fit: contain
+			object-position: center		
 	&__tools
 		display: flex
 		flex-wrap: wrap
@@ -654,6 +757,8 @@ ul,ol
 			vertical-align: middle
 .category-block
 	padding: 40px 0
+	&:last-child
+		padding-bottom: 120px
 	&--highlighted
 		background-color: #f3f5ed
 		padding: 80px 0
@@ -688,65 +793,181 @@ ul,ol
 			display: flex
 		.slick-list
 			margin: 0 -15px
+.text-block
+	padding: 80px 0
+	text-align: center
+	color: $gray
+	h1,h2,h3,h4
+		color: #343d43
+		text-transform: uppercase
+	strong
+		color: #343d43
+	&__inner
+		max-width: 750px
+		margin: 0 auto
+.review-card
+	width: 282px
+	margin: 0 15px 30px
+	background-color: #fff
+	padding: 30px
+	text-align: center
+	display: flex
+	flex-direction: column
+	align-items: center
+	&.slick-slide
+		display: flex
+		margin-bottom: 0
+		height: auto
+		flex: 1 1 auto
+	&__pic
+		width: 100px
+		height: 100px
+		position: relative
+		margin: 0 0 20px
+	&__img
+		display: block
+		width: 100%
+		height: 100%
+		border-radius: 50%
+		+obj
+	&__country
+		position: absolute
+		right: -3px
+		top: -6px
+		width: 28px
+		height: 28px
+		+obj
+		border-radius: 50%
+	&__title
+		font-size: 18px
+		margin: 0 0 .5em
+	&__date
+		color: $gray
+		margin: 0 0 .8em
+	&__rating
+		margin: 0 0 29px
+	&__text
+		width: 100%
+		text-align: left
+		color: #7f8588
+		margin: 0 0 1.6em
+	&__footer
+		width: 100%
+		text-align: left
+		margin: auto 0 0
+		color: $gray
+.order-form
+	width: 320px
+	max-width: 100%
+	&__title
+		text-transform: uppercase
+		margin: 0 0 .8em
+	&__img
+		background: url(../img/logo.svg) no-repeat center/contain
+		margin: 0 0 13px
+		&:before
+			content: ''
+			display: block
+			padding-top: 68%
+	&__good-title
+		border-bottom: 1px solid #efeee7
+		padding-bottom: .8em
+		margin: 0 0 .8em
+	&__calc
+		display: flex
+		flex-wrap: wrap
+		align-items: center
+		justify-content: space-between
+	&__price
+		font-size: 21px
+		font-weight: 600
+	&__old-price
+		font-weight: 600
+		text-decoration: line-through
+		color: $gray
+		margin-right: 10px		
+	&__total
+		width: 100%
+		color: $gray
+		margin: 44px 0 0
+		&-price
+			font-size: 30px
+			line-height: normal
+			color: #343d43
+			vertical-align: middle
+			font-weight: 600
+			margin-left: .5em
+			&:after
+				content: ' 'attr(data-currency)
+	&__fields
+		margin: 28px 0 0
+	&__btn
+		margin-top: 30px
 /*ПОДВАЛ*/
 .footer
 	background-color: #fff
 	&__topline
 		display: flex
 		margin: 0 -15px
-		padding: 50px 0 20px
+		padding: 57px 0 20px
 	&__column
 		margin: 0 15px 20px
 		flex: 1 1 auto
 	&__logo
 		display: block
 		width: 153px
-		margin: 0 0 10px
+		margin: 0 0 18px
 	&__email
 		display: block
 		width: max-content
 		max-width: 100%
 		font-size: 18px
+		margin: 0 0 .9em
 	&__key
 		color: $gray
+		margin: 0 0 .2em
 	&__value
 		font-size: 18px
 		font-weight: bold
 	&__title
 		font-size: 18px
-		margin: 0 0 .3em
+		text-transform: uppercase
 	&__menu
 		+unlist
 		>li
-			margin: 0 0 .5em
+			margin: 0 0 .9em
 			&:last-child
 				margin-bottom: 0
 			>a
 				color: $gray
 	&__midline
 		border-top: 1px solid #efeee7
-		padding: 28px 0 15px
+		padding: 28px 0 10px
 	&__country-list
 		+unlist
+		color: $gray
 		>li
 			display: inline-block
+			margin: 0 0 1em
 			&:after
 				content: '•'
 				color: #e4e4e4
 				display: inline-block
+				margin: 0 .7em 0 .9em
 			&:last-child:after
 				display: none
 			>a
-				color: $gray
+				color: inherit
 	&__country-select
 		display: none
 	&__bottomline
 		border-top: 1px solid #efeee7
-		padding: 25px 0 30px
+		padding: 32px 0 30px
 		text-align: center
 		color: $gray
 	&__icon
 		margin-left: 60px
+		vertical-align: bottom
 .ssl
 	display: inline-flex
 	text-align: left

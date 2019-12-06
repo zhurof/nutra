@@ -18,6 +18,23 @@ $('.select__input').change(function(){
 			value = wrapper.find('li').eq(index).html();
 	wrapper.find('.select__output').html(value);
 })
+//кастомный input[type=number]
+$('.number-field__btn').mousedown(function(){
+	var input = $(this).siblings('input')[0],
+			min = input.min || 0,
+			max = input.max || 99,
+			step = input.step || 1,
+			value = input.value;
+
+	if($(this).is('.plus') && value <= max-step){
+		input.value = +value + +step;
+		$(input).trigger('change');
+	}
+	if($(this).is('.minus') && value >= +min + +step){
+		input.value = value - step;
+		$(input).trigger('change');
+	}
+})
 //интерактив в шапке
 $('.header__catalog-btn').click(function(){
 	$('.catalog-menu').fadeToggle(300);
@@ -33,7 +50,6 @@ $(document).click(function(e){
 })
 //Блок со слайдером карточек
 $('.category-block').each(function(index,element){
-	console.log(index);
 	$(this).find('.category-block__slider').slick({
 		slidesToShow: 4,
 		touchThreshold: 1000,
@@ -48,4 +64,68 @@ $('.card__favourites').click(function(){
 })
 $('.card__collation').click(function(){
 	$(this).toggleClass('card__collation--active')
+})
+//Модальные окна
+function openModal(modalId, initiator){  
+  var scrollWidth = window.innerWidth - document.body.clientWidth;//Ширина полосы прокрутки
+  
+	$('.modal-wrapper').children().unwrap();
+	if(!$('#'+modalId).length){
+		alert('Ошибка вызова модального окна');
+		return false;
+	}
+	$('#'+modalId).trigger('beforeModalShow',initiator).wrap('<div class="modal-wrapper" style="display:none" />');
+	$('.modal-wrapper').fadeIn(400,function(){
+    $('#'+modalId).trigger('afterModalShow',initiator);
+  });	
+	if(scrollWidth){
+		$('html').css('padding-right',scrollWidth);
+		$('body').css('overflow-y','hidden');
+	}
+}
+function closeModal(){
+	$('.modal-wrapper').fadeOut(200, function(){
+		$('html').css('padding-right','');
+		$('body').css('overflow-y','');
+	});
+}
+$(document).on('click', '[data-modal]', function(e){
+	e.preventDefault();
+	var modal = $(this).data('modal');
+	openModal(modal,e.target);
+})
+$(document).on('click', '.modal__close', closeModal);
+
+$(document).on('mousedown', '.modal-wrapper', function(e){
+	if(!$('.modal').is(e.target) && $('.modal').has(e.target).length === 0){
+		closeModal();
+	}
+})
+$(document).keydown(function(e){
+	//Закрытие окна на Esc
+	if(e.which == 27){
+		closeModal();
+	}
+});
+//подтягивание данных в модальнео окно заказа
+$('#order').on('beforeModalShow',function(e,initiator){
+	var image = $(initiator).data('img'),
+			title = $(initiator).data('title'),
+			price = $(initiator).data('price'),
+			oldPrice = $(initiator).data('old-price') || '';
+	$(this).find('.order-form__img').css('background-image','url('+image+')');
+	$(this).find('.order-form__good-title').text(title);
+	$(this).find('[name=good]').val(title);
+	$(this).find('.order-form__price').text(price);
+	$(this).find('.order-form__total-price').text(price.replace(/\D/g,''));
+	$(this).find('.order-form__old-price').text(oldPrice);
+	$(this).find('.order-form__amount input').each(function(){
+		this.value = this.min || 1;
+	});
+})
+//расчет суммы в модальном окне
+$('.order-form__amount input').on('input change',function(){
+	var amount = +this.value,
+			price = +$(this).parents('.order-form').find('.order-form__price').text().replace(/\D/g,'');
+	$(this).parents('.order-form').find('.order-form__total-price').text(amount*price);
 })

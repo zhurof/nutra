@@ -38,37 +38,37 @@
 			</div>
 			<div class="footer__midline">
 				<ul class="footer__country-list">
-					<li>Австралия</li>
-					<li>Австрия</li>
-					<li>Аргентина</li>
-					<li>Бельгия</li>
-					<li>Бразилия</li>
-					<li>Великобритания</li>
-					<li>Германия</li>
-					<li>Дания</li>
-					<li>Израиль</li>
-					<li>Ирландия</li>
-					<li>Испания</li>
-					<li>Италия</li>
-					<li>Канада</li>
-					<li>Нидерланды</li>
-					<li>Новая Зеландия</li>
-					<li>Норвегия</li>
-					<li>Саудовская Аравия</li>
-					<li>Колумбия
-					<li>Сингапур</li>
-					<li>Мексика</li>
-					<li>США</li>
-					<li>Финляндия</li>
-					<li>Франция</li>
-					<li>Чехия</li>
-					<li>Швейцария</li>
-					<li>Швеция</li>
-					<li>Корея</li>
-					<li>Япония</li>
-					<li>Гонконг</li>
-					<li>Тайвань</li>
-					<li>Южноафриканская Республика</li>
+					<li><a href="#">Австралия</a></li>
+					<li><a href="#">Австрия</a></li>
+					<li><a href="#">Аргентина</a></li>
+					<li><a href="#">Бельгия</a></li>
+					<li><a href="#">Бразилия</a></li>
+					<li><a href="#">Великобритания</a></li>
+					<li><a href="#">Германия</a></li>
+					<li><a href="#">Дания</a></li>
+					<li><a href="#">Израиль</a></li>
+					<li><a href="#">Ирландия</a></li>
+					<li><a href="#">Испания</a></li>
+					<li><a href="#">Италия</a></li>
+					<li><a href="#">Канада</a></li>
+					<li><a href="#">Нидерланды</a></li>
+					<li><a href="#">Новая Зеландия</a></li>
+					<li><a href="#">Норвегия</a></li>
+					<li><a href="#">Саудовская Аравия</a></li>
+					<li><a href="#">Колумбия</a></li>
+					<li><a href="#">Сингапур</a></li>
+					<li><a href="#">Мексика</a></li>
+					<li><a href="#">США</a></li>
+					<li><a href="#">Финляндия</a></li>
+					<li><a href="#">Франция</a></li>
+					<li><a href="#">Чехия</a></li>
+					<li><a href="#">Швейцария</a></li>
+					<li><a href="#">Швеция</a></li>
+					<li><a href="#">Корея</a></li>
+					<li><a href="#">Япония</a></li>
+					<li><a href="#">Гонконг</a></li>
+					<li><a href="#">Тайвань</a></li>
+					<li><a href="#">Южноафриканская Республика</a></li>
 				</ul>
 				<div class="select select--simple footer__country-select" tabindex="0">
 					<select name="language" class="select__input" tabindex="-1">
@@ -95,6 +95,79 @@
 			</div>
 		</div>
 	</footer>
+	<div class="modal" id="order">
+		<span class="icon-close modal__close"></span>
+		<form action="" class="order-form">
+			<h3 class="order-form__title">Купить в 1 клик</h3>
+			<div class="order-form__img" style="background-image:url(img/goods/6.jpg)"></div>
+			<h3 class="order-form__good-title">Psorifort - Крем от псориаза</h3>
+			<div class="order-form__calc">
+				<span class="number-field order-form__amount">
+					<span class="number-field__btn minus">-</span>
+					<input type="number" name="amount" class="number-field__input" min="1" max="50" value="1" required />
+					<span class="number-field__btn plus">+</span>
+				</span>
+				<div class="order-form__price-wrapper">
+					<span class="order-form__old-price">210 ₽</span>
+					<span class="order-form__price">190 ₽</span>
+				</div>
+				<div class="order-form__total">
+					<span>Итого:</span>
+					<span class="order-form__total-price" data-currency="₽">4 340</span>
+				</div>
+			</div>
+			<div class="order-form__fields">
+				<input type="text" name="username" placeholder="Имя" required />
+				<input type="tel" name="phone" placeholder="Телефон" required />
+				<input type="hidden" name="good" />
+				<button class="btn btn--oval btn--block order-form__btn">Заказать</button>
+			</div>
+		</form>
+	</div>
+	<div class="modal" id="location">
+		<div class="location">
+			<h3 class="location__title">Выберите город</h3>
+			<input type="search" class="location__input" placeholder="Введите название города" />
+			<ul class="location__list">
+				<li>Москва</li>
+				<li>Санкт-Петербург</li>
+				<li>Абакан</li>
+				<li>Анапа</li>
+				<li>Ангарск</li>
+				<li>Арзамас</li>
+				<li>Москва</li>
+				<li>Санкт-Петербург</li>
+				<li>Абакан</li>
+				<li>Анапа</li>
+				<li>Ангарск</li>
+				<li>Арзамас</li>
+				<li>Москва</li>
+				<li>Санкт-Петербург</li>
+				<li>Абакан</li>
+				<li>Анапа</li>
+				<li>Ангарск</li>
+				<li>Арзамас</li>
+				<li>Москва</li>
+				<li>Санкт-Петербург</li>
+				<li>Абакан</li>
+				<li>Анапа</li>
+				<li>Ангарск</li>
+				<li>Арзамас</li>
+				<li>Москва</li>
+				<li>Санкт-Петербург</li>
+				<li>Абакан</li>
+				<li>Анапа</li>
+				<li>Ангарск</li>
+				<li>Арзамас</li>
+				<li>Москва</li>
+				<li>Санкт-Петербург</li>
+				<li>Абакан</li>
+				<li>Анапа</li>
+				<li>Ангарск</li>
+				<li>Арзамас</li>
+			</ul>
+		</div>
+	</div>
 	<script src="libs/jquery/jquery-3.4.1.min.js"></script>
 	<script src="libs/slick/slick.min.js"></script>
 	<script src="js/script.js"></script>	
