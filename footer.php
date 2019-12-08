@@ -88,10 +88,11 @@
 			</div>
 			<div class="footer__bottomline">
 				© Название компании - Чем компания занимается, 2005—2018.
-				<span class="ssl footer__icon">
+				<img src="img/ssl-encryption.svg" alt="" class="footer__icon">
+				<!--<span class="ssl footer__icon">
 					<img src="img/lock.svg" class="ssl__icon" alt="">
 					<span class="ssl__text">SSL <br>Encryption</span>
-				</span>
+				</span>-->
 			</div>
 		</div>
 	</footer>
@@ -125,6 +126,7 @@
 		</form>
 	</div>
 	<div class="modal" id="location">
+		<span class="icon-close modal__close"></span>
 		<div class="location">
 			<h3 class="location__title">Выберите город</h3>
 			<input type="search" class="location__input" placeholder="Введите название города" />

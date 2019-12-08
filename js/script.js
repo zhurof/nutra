@@ -39,14 +39,29 @@ $('.number-field__btn').mousedown(function(){
 $('.header__catalog-btn').click(function(){
 	$('.catalog-menu').fadeToggle(300);
 })
+$('.catalog-menu__close').click(function(){
+	$(this).parent('.catalog-menu').fadeOut(300);
+})
+$('.catalog-menu__title').click(function(){
+	$(this).toggleClass('catalog-menu__title--active');
+	$(this).siblings('.catalog-menu__menu').toggleClass('catalog-menu__menu--open');
+})
 $('.basket-widget__trigger').click(function(e){
-	e.preventDefault();
-	$(this).siblings('.basket-widget__body').fadeToggle(200);
+	if(innerWidth>767){//показывать виджет только для больших экранов
+		e.preventDefault();
+		$(this).siblings('.basket-widget__body').fadeToggle(200);
+	}	
 })
 $(document).click(function(e){
 	if(!$(e.target).is('.basket-widget') && !$('.basket-widget').has(e.target).length){
 		$('.basket-widget__body').hide();
 	}
+})
+$('.menu-btn').click(function(){
+	$('.header__topline').toggleClass('header__topline--open');
+})
+$('.header__close-btn').click(function(){
+	$('.header__topline').removeClass('header__topline--open')
 })
 //Блок со слайдером карточек
 $('.category-block').each(function(index,element){
@@ -55,7 +70,25 @@ $('.category-block').each(function(index,element){
 		touchThreshold: 1000,
 		prevArrow: '<span class="icon-angle-left category-block__arrow category-block__arrow--prev">',
 		nextArrow: '<span class="icon-angle-right category-block__arrow category-block__arrow--next">',
-		appendArrows: '.category-block:eq('+index+') .category-block__nav'
+		appendArrows: '.category-block:eq('+index+') .category-block__nav',
+		responsive: [
+			{
+				breakpoint: 1260,
+				settings: {
+					slidesToShow: 3
+				}
+			},{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 2
+				}
+			},{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 1
+				}
+			}
+		]
 	})
 })
 //интерактив для карточки товара (декоративный, для демонстрации)
@@ -128,4 +161,10 @@ $('.order-form__amount input').on('input change',function(){
 	var amount = +this.value,
 			price = +$(this).parents('.order-form').find('.order-form__price').text().replace(/\D/g,'');
 	$(this).parents('.order-form').find('.order-form__total-price').text(amount*price);
+})
+//меню в сайдбаре
+$('.sidebar__menu>li>a:not(:only-child)').click(function(e){
+	e.preventDefault();
+	$(this).toggleClass('active');
+	$(this).siblings('ul').slideToggle(200)
 })

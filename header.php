@@ -22,8 +22,8 @@
 					<li><a href="#">Контакты</a></li>
 				</ul>
 				<div class="header__info">
-					<div class="header__text"><em>Время работы</em> Ежедневно, 24/7</div>
-					<div class="header__text"><em>Оформление заказов</em> Круглосуточно</div>
+					<div class="header__text"><em>Время работы&nbsp;&nbsp;</em> Ежедневно, 24/7</div>
+					<div class="header__text"><em>Оформление заказов&nbsp;&nbsp;</em> Круглосуточно</div>
 					<div class="header__text"><a href="mailto:greennutrashop@info.ru">greennutrashop@info.ru</a></div>
 				</div>
 				<div class="header__options">
@@ -43,6 +43,7 @@
 			</div>
 			<div class="header__midline">
 				<a href="/" class="logo header__logo"><img src="img/logo.svg" alt=""></a>
+				<span class="menu-btn"></span>
 				<ul class="header__menu">
 					<li><a href="#">Главная</a></li>
 					<li><a href="#">Доставка и оплата</a></li>
@@ -59,7 +60,7 @@
 						<span>Сравнение</span>
 					</a>
 					<div class="basket-widget header__basket">
-						<a href="#" class="basket-widget__trigger"> <!--data-amount="3"-->
+						<a href="basket.php" class="basket-widget__trigger"> <!--data-amount="3"-->
 							<i class="icon-cart"></i>
 							<span>0 товаров <!--2 490 ₽--></span>
 						</a>
