@@ -93,13 +93,13 @@ input,textarea,select
 	color: inherit
 	&:focus
 		border-color: $green
-	&[required]
+	&:required
 		background:
 			image: url(../img/red-text-star.svg)
 			repeat: no-repeat
 			position: 0 17px
 		padding-left: 10px
-	&[disabled]
+	&:disabled
 		border-color: #f9f9f9
 		background: #f9f9f9
 		color: $gray
@@ -117,12 +117,78 @@ input,textarea,select
 	border: none
 	border-bottom: 2px solid rgb(162, 169, 174)
 	padding: 13.5px 0
-	margin: 0 0 14px
+	margin: 0 0 14px	
 	&:last-child
 		margin-bottom: 0
 textarea
+	display: block
+	width: 100%
+	margin: 0 0 14px
 	resize: none
-	overflow: auto	
+	overflow: auto
+	border: 1px solid #b9bec2
+	padding: 12px 20px
+	&[required]
+		padding-left: 20px
+		background-position-x: 7px
+	&:last-child
+		margin-bottom: 0
+		
+[type=radio],
+[type=checkbox]
+	appearance: none
+	display: inline-block
+	width: 14px
+	height: 14px
+	margin: 0
+	flex: 0 0 auto
+	border: 1px solid rgb(127, 133, 136)
+	transition: all .3s ease
+		
+[type=radio]
+	border-radius: 50%
+	padding: 2px	
+	&:focus
+		border-color: rgb(127, 133, 136)
+	&:checked
+		background-color: $green
+		background-clip: content-box
+	&:required
+		padding-left: 2px
+		background-image: none
+[type=checkbox]	
+	text-align: center
+	font: normal normal 7px/12px icomoon
+	text-indent: 1px
+	color: transparent
+	&:before
+		content: '\e909'
+	&:checked
+		color: $green
+	&:focus
+		border-color: rgb(127, 133, 136)
+	&:required
+		background: none
+		padding: 0
+		
+.label
+	display: flex
+	align-items: flex-start
+	margin: 0 0 14px
+	cursor: pointer
+	user-select: none
+	width: max-content
+	max-width: 100%
+	&:last-child
+		margin-bottom: 0
+	&__input
+		margin: 5px 15px 0 0
+	&__text
+		display: block
+		flex: 1 1 auto
+		transition: all .3s ease
+	&__input:checked + &__text
+		color: $green	
 select
 	appearance: none
 	display: block
@@ -148,8 +214,7 @@ select
 		display: inline-block
 		position: absolute
 		top: calc(50% - .5em)
-		right: 0
-		
+		right: 0		
 	&--simple
 		border: none
 	&__input
@@ -242,6 +307,7 @@ select
 		color: $green
 		user-select: none
 		cursor: pointer
+		
 /*кнопки*/
 button,
 [type=submit],
@@ -270,6 +336,16 @@ button,
 		border-radius: 100px
 	&--gray
 		background-color: #a2a9ae
+		border-color: #a2a9ae
+	&--high
+		line-height: 58px
+		font-size: 16px
+		text-transform: uppercase
+	&--grad
+		background: linear-gradient(to right,$green,$dark-green)
+		border: none
+		line-height: 50px
+		padding: 0 36px
 	&--thin
 		background-color: transparent
 		color: #343d43
@@ -278,7 +354,6 @@ button,
 		display: block
 		width: 100%
 		padding: 0 10px
-	
 
 /*заголовки*/
 h1,h2,h3,h4,h5,h6
@@ -304,6 +379,20 @@ ul
 	list-style-image: url(../img/list-marker.svg)
 	padding-left: 1em		
 /*таблицы*/
+table
+	width: 100%
+	border-collapse: collapse
+	td,th
+		border-bottom: 1px solid #efeee7
+		padding: 13px 10px 13px 0
+	th
+		font-weight: inherit
+		text-align: inherit
+		color: $gray
+	tbody
+		tr:last-child
+			td,th
+				border-bottom: 0
 /*контейнеры*/
 .wrapper
 	max-width: 1260px
@@ -956,11 +1045,13 @@ ul
 		display: flex
 		align-items: flex-start
 	&__content
-		flex: 1 1 calc(100% - 310px)
+		width: calc(100% - 313px)
+		flex: 1 1 auto
 		order: 1
 		padding-bottom: 80px
 	&__sidebar
-		flex: 0 0 313px
+		width: 313px
+		flex: 0 0 auto
 		padding-right: 30px
 .sidebar
 	&__menu
@@ -1188,6 +1279,145 @@ ul
 					font-size: 18px
 					line-height: 24/18*1
 					font-weight: bold
+.contacts
+	background-color: #fff
+	padding: 60px 60px 60px
+	margin: 0 0 30px
+	&__title
+		text-transform: uppercase
+		margin: 0 0 1.9em
+	&__inner
+		display: flex
+		align-items: flex-start
+	&__text
+		flex-basis: 355px
+		h4
+			font-size: 18px
+			margin: 2.2em 0 .5em
+			&:first-child
+				margin-top: 0
+			&:last-child
+				margin-bottom: 0
+		p
+			margin: 0 0 .5em
+			&:last-child
+				margin-bottom: 0
+		.icon-map-marker
+			font-size: 20/16*1em
+			margin-right: 4px
+	&__phone
+		display: block
+		width: max-content
+		max-width: 100%
+		font-size: 30px
+		font-weight: bold
+		margin: 0 0 1.2em
+		line-height: normal
+	&__email
+		display: block
+		width: max-content
+		max-width: 100%		
+		font-size: 21px
+		line-height: 30/21*1
+		&:before
+			content: '\e90c'
+			font-family: icomoon
+			display: inline-block
+			vertical-align: middle
+			font-size: 30/21*1em
+			line-height: 1
+			margin-right: 20/30*1em			
+	&__form
+		flex-basis: 320px
+		padding-left: 38px
+		margin-top: 3px
+		&-title
+			font-size: 18px
+			margin: 0 0 .9em
+	&__textarea
+		margin: 30px 0 26px
+.map
+	max-width: 100%
+	height: 510px
+	background-color: $gray
+.form
+	padding: 40px 0
+	&__fieldset
+		flex-basis: calc(50% - 30px)
+		margin: 0 15px 46px
+	&__subtitle
+		font-size: 18px
+		margin: 0 0 1.5em
+.basket
+	padding: 57px 60px 60px
+	background-color: #fff
+	&__title
+		text-transform: uppercase
+		margin: 0 0 .8em
+	&__table		
+		td,th
+			&:last-child
+				padding-right: 0
+			&:nth-child(2)
+				max-width: 200px
+		tbody
+			font-weight: bold
+	&__img
+		width: 65px
+		height: 91px
+		object-fit: contain
+		object-position: center
+	&__old-price
+		display: block
+		color: $gray
+		font-weight: 600
+		white-space: nowrap
+		text-decoration: line-through
+	&__price
+		font-weight: 600
+		font-size: 21px
+		line-height: 1
+		white-space: nowrap
+	&__good-total
+		white-space: nowrap
+		&:after
+			content: ' 'attr(data-currency)
+	&__tools
+		font-size: 20px
+		user-select: none
+	&__remove-btn
+		color: $red
+		cursor: pointer
+		margin-left: 3px
+	&__refresh-btn
+		color: #ffcb00
+		cursor: pointer
+		margin-right: 3px
+	&__footer
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		align-items: center
+		border-top: 1px solid #efeee7
+		margin-top: 4px
+		padding-top: 30px
+	&__total
+		color: $gray
+		margin: 0 auto
+		&:last-child
+			margin-right: 0
+		&-price
+			color: #343d43
+			font-size: 30px
+			font-weight: 600
+			line-height: 24/30*1
+			vertical-align: middle
+			margin-left: .6em
+			&:after
+				content: ' 'attr(data-currency)
+	&__form
+		padding-bottom: 0
+
 
 /*ПОДВАЛ*/
 .footer

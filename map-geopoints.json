@@ -1,0 +1,17 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"id": 0,
+			"geometry": {
+				"type": "Point", 
+				"coordinates": [55.637769, 37.511311]
+			},
+			"properties": {
+				"hintContent": "Адрес регионального представительства Green Nutra Shop",
+				"balloonContentHeader": "Адрес регионального представительства Green Nutra Shop"
+			}
+		}
+	]
+}

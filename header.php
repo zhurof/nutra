@@ -99,8 +99,8 @@
 								</div>
 							</div>
 							<div class="basket-widget__footer">
-								<a href="#">Посмотреть корзину</a>
-								<a href="#" class="btn btn--oval btn--block basket-widget__btn">Оформить заказ</a>
+								<a href="basket.php">Посмотреть корзину</a>
+								<a href="order.php" class="btn btn--oval btn--block basket-widget__btn">Оформить заказ</a>
 							</div>
 						</div>
 					</div>

@@ -168,3 +168,50 @@ $('.sidebar__menu>li>a:not(:only-child)').click(function(e){
 	$(this).toggleClass('active');
 	$(this).siblings('ul').slideToggle(200)
 })
+//Карта на странице контакты
+if($('#map').length){
+	ymaps.ready(initMap);
+}
+var myMap;
+
+function initMap(){	
+	$.ajax({
+		url: "/map-geopoints.json"
+	}).done(function(data){
+			console.log(data);
+		myMap = new ymaps.Map('map', {
+			center: data.features[0].geometry.coordinates,
+			zoom: 12,
+			controls: []
+		}),
+		objectManager = new ymaps.ObjectManager();	
+		myMap.geoObjects.add(objectManager);
+		objectManager.add(data);
+	});
+}
+
+function flyTo(coords){
+	coordsArray = coords.split(/\s?,\s?/);
+	coordsArray.forEach(function(element,index){
+		coordsArray[index] = parseFloat(element);
+	})
+	if(myMap){
+		$('html,body').animate({scrollTop: $('#map').offset().top},500);
+		myMap.panTo(coordsArray);
+	}
+	
+	return false;
+}
+//Корзина
+$('.basket__amount input').on('input change',function(){
+	var amount = +this.value,
+			price = +$(this).parents('tr').find('.basket__price').text().replace(/\D/g,'');
+	//считаем стоимость одной позиции
+	$(this).parents('tr').find('.basket__good-total').text(amount * price);
+	//общая стоимость всех товаров корзины
+	var totalPrice = 0;
+	$('.basket__good-total').each(function(){
+		totalPrice += +$(this).text().replace(/\D/g,'');
+	})
+	$('.basket__total-price').text(totalPrice);
+})

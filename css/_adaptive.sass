@@ -4,6 +4,9 @@
 	to
 		opacity: 1
 @media(min-width: 992px)
+	.label
+		&:hover
+			color: $green
 	.btn
 		transition: all .2s ease-out
 		&:hover
@@ -12,6 +15,8 @@
 		&--gray:hover
 			border-color: #abb8c1
 			background-color: #abb8c1
+		&--grad:hover
+			background: linear-gradient(to right,$green,#77ca53)
 		&--thin:hover
 			background-color: transparent
 			border-color: $green
@@ -155,6 +160,69 @@
 			right: 20px
 		&__item
 			width: calc(50% - 30px)
+	.contacts
+		padding: 50px 30px
+		margin: 0 0 10px
+	.basket
+		padding: 57px 30px 60px
+		&__table
+			display: block
+			tbody,td,th
+				display: block
+			thead
+				display: none
+			td,th
+				padding: 0
+				border: none
+				&:nth-child(2)	
+					max-width: 100%
+			tr
+				display: flex
+				flex-wrap: wrap
+				align-items: center
+				padding: 20px 0
+				border-bottom: 1px solid #efeee7
+				&:last-child
+					border-bottom: none
+			td
+				position: relative
+				width: 100%
+				max-width: 100%
+				padding-left: 50%
+				min-height: 1.5em
+				margin-bottom: 10px
+				&:before
+					content: attr(data-caption)
+					color: $gray
+					font-weight: 400
+					line-height: 1.4
+					display: inline-block
+					position: absolute
+					left: 0
+					top: 0
+				&:first-child
+					padding-left: 0
+					width: 65px
+					flex: 0 0 auto
+					min-height: 0
+					&:before
+						display: none
+				&:nth-child(2)
+					width: calc(100% - 65px)
+					padding-left: 10px
+					min-height: 0
+					flex: 1 1 auto
+					&:before
+						display: none
+		&__img
+			height: auto
+		&__tools
+			margin-top: 15px
+		&__total
+			order: -1
+			width: 100%
+			margin: 0 0 1em
+			text-align: center
   
 @media(max-width:991px)
 	.select
@@ -181,7 +249,10 @@
 		padding: 20px 0 0
 		&__inner
 			display: block
+		&__content
+			width: auto
 		&__sidebar
+			width: auto
 			padding: 0 0 20px
 	.breadcrumbs
 		display: none
@@ -202,7 +273,7 @@
 	.catalog
 		padding-top: 42px
 		&__box
-			justify-content: center
+			justify-content: center		
 	.footer
 		&__topline
 			flex-wrap: wrap
@@ -222,6 +293,17 @@
 		font-size: 18px
 	h4
 		font-size: 18px
+	input,textarea
+		&:required
+			background-size: 5px auto
+	[type=text],
+	[type=email],
+	[type=tel],
+	[type=url],
+	[type=password]
+		font-size: 14px	
+	.label
+		margin: 0 0 11px
 	.header
 		padding: 0 0 5px
 		&__midline
@@ -401,6 +483,80 @@
 			a,span
 				display: inline-block
 				padding: 0
+	.contacts
+		padding: 41px 20px 40px
+		&__title
+			text-align: center
+			margin: 0 0 1.5em
+		&__inner
+			display: block
+		&__text
+			margin: 0 0 40px
+			h4
+				font-size: 16px
+				margin: 1.8em 0 .6em
+		&__phone
+			font-size: 24px
+			margin: 0 0 1em
+		&__email
+			font-size: 18px
+		&__form
+			padding: 0
+			&-title
+				font-size: 16px
+				margin: 0 0 .1em
+		&__input
+			font-size: 14px
+			margin: 0 0 7px
+		&__textarea
+			margin: 21px 0 15px
+	.map
+		height: 400px
+	.form
+		padding: 29px 0
+		&__box
+			display: block
+			margin: 0
+		&__fieldset
+			margin: 0 0 36px
+		&__subtitle
+			font-size: 16px
+			margin: 0 0 .9em
+		
+	.basket
+		padding: 40px 20px
+		&__title
+			text-align: center
+		&__table
+			tr
+				margin: 0 -20px
+				padding: 20px				
+			td
+				&:nth-child(2)
+					font-size: 16px
+					line-height: 1.5
+		&__old-price
+			font-size: 16px
+			line-height: 1.5
+		&__price
+			font-size: 18px
+		&__good-total
+			font-size: 18px
+		&__footer
+			flex-direction: column
+			border-top: none
+			padding-top: 0
+		&__total
+			margin: 0 0 30px
+			&-price
+				font-size: 24px
+		&__back-btn
+			width: 100%
+			margin: 0 0 10px
+		&__order-btn
+			width: 100%
+		&__form
+			padding-bottom: 0
 	.footer
 		&__topline
 			flex-direction: column
@@ -444,6 +600,7 @@
 		&__trigger
 			i
 				font-size: 30px
+				margin: 0
 			span
 				display: none
 	.header	
@@ -456,6 +613,7 @@
 				left: 20px
 			i
 				font-size: 30px
+				margin: 0
 			span
 				display: none
 	.category-block
