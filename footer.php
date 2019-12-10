@@ -89,10 +89,6 @@
 			<div class="footer__bottomline">
 				© Название компании - Чем компания занимается, 2005—2018.
 				<img src="img/ssl-encryption.svg" alt="" class="footer__icon">
-				<!--<span class="ssl footer__icon">
-					<img src="img/lock.svg" class="ssl__icon" alt="">
-					<span class="ssl__text">SSL <br>Encryption</span>
-				</span>-->
 			</div>
 		</div>
 	</footer>
@@ -170,8 +166,35 @@
 			</ul>
 		</div>
 	</div>
+	<div class="modal" id="review">
+		<span class="icon-close modal__close"></span>
+		<form class="review-form">
+			<h3 class="review-form__title">Оставить отзыв</h3>
+			<div class="review-form__inner">
+				<label class="userpic-field review-form__pic">
+					<input type="file" class="userpic-field__input" accept="image/*" />					
+				</label>
+				<div class="review-form__main">
+					<input type="text" class="review-form__input" placeholder="Имя" required>
+					<span class="rating-field review-form__rating">
+						<span class="rating-field__label">Выберите рейтинг</span>
+						<span class="rating-field__body">
+							<input type="radio" name="rating" value="1" class="rating-field__star">
+							<input type="radio" name="rating" value="2" class="rating-field__star">
+							<input type="radio" name="rating" value="3" class="rating-field__star">
+							<input type="radio" name="rating" value="4" class="rating-field__star">
+							<input type="radio" name="rating" value="5" class="rating-field__star">
+						</span>
+					</span>
+				</div>
+			</div>
+			<textarea rows="6" class="review-form__message" placeholder="Отзыв о товаре"></textarea>
+			<button class="btn btn--block btn--oval review-form__btn">Оставить отзыв</button>
+		</form>
+	</div>
 	<script src="libs/jquery/jquery-3.4.1.min.js"></script>
 	<script src="libs/slick/slick.min.js"></script>
+	<script src="libs/fancybox/jquery.fancybox.min.js"></script>
 	<script src="js/script.js"></script>	
 </body>
 </html>

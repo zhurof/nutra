@@ -65,8 +65,16 @@ $('.header__close-btn').click(function(){
 })
 //Блок со слайдером карточек
 $('.category-block').each(function(index,element){
-	$(this).find('.category-block__slider').slick({
+	var customOptions = {
 		slidesToShow: 4,
+		tablet: 3
+	}
+	if($(this).is('.category-block--small')){
+		customOptions.slidesToShow = 3;
+		customOptions.tablet = 2;
+	}
+	$(this).find('.category-block__slider').slick({
+		slidesToShow: customOptions.slidesToShow,
 		touchThreshold: 1000,
 		prevArrow: '<span class="icon-angle-left category-block__arrow category-block__arrow--prev">',
 		nextArrow: '<span class="icon-angle-right category-block__arrow category-block__arrow--next">',
@@ -75,7 +83,7 @@ $('.category-block').each(function(index,element){
 			{
 				breakpoint: 1260,
 				settings: {
-					slidesToShow: 3
+					slidesToShow: customOptions.tablet
 				}
 			},{
 				breakpoint: 992,
@@ -214,4 +222,52 @@ $('.basket__amount input').on('input change',function(){
 		totalPrice += +$(this).text().replace(/\D/g,'');
 	})
 	$('.basket__total-price').text(totalPrice);
+})
+//Страница товара
+$('.good__slider').slick({
+	prevArrow: '<span class="icon-angle-left good__arrow good__arrow--prev">',
+	nextArrow: '<span class="icon-angle-right good__arrow good__arrow--next">',
+	dots: true,
+	dotsClass: 'good__dots',
+	customPaging: function(slick,index){
+		var img = $(slick.$slides[index]).find('img').clone();
+		return img;
+	},
+	responsive: [
+		{
+			breakpoint: 768,
+			settings: {
+				dots: false
+			}
+		}
+	]
+})
+$('.good__favourites').click(function(){
+	$(this).toggleClass('good__favourites--active')
+})
+$('.good__collation').click(function(){
+	$(this).toggleClass('good__collation--active')
+})
+//интерактив для отзыва
+$('.review__increase').click(function(){
+	$(this).toggleClass('review__increase--active');
+	$(this).siblings().removeClass('review__decrease--active');
+})
+$('.review__decrease').click(function(){
+	$(this).toggleClass('review__decrease--active');
+	$(this).siblings().removeClass('review__increase--active');
+})
+//Поле для загрузки аватара пользователя
+$('.userpic-field [type=file]').change(function(){
+	var field = $(this).parent('.userpic-field');	
+	if(this.value){				
+		var file = this.files[0];			
+		if(/^image\//.test(file.type) && window.hasOwnProperty('URL')){ //Если файл - картинка и можно вывести миниатюру
+			var imageUrl = URL.createObjectURL(file);
+			field.css('background-image','url('+imageUrl+')');
+			//URL.revokeObjectURL(imageUrl);
+		}	
+	}else{
+		field.css('background-image','');
+	}
 })

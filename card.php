@@ -28,6 +28,6 @@
 			<?endif;?>
 			<div class="card__price"><?=$card['price'];?> ₽</div>
 		</div>
-		<button class="card__btn" data-modal="order" data-img="img/goods/<?=$card['image'];?>.jpg" data-title="<?=$card['title'];?>" data-price="<?=$card['price'];?> ₽" <?=$card['old-price'] ? 'data-old-price="'.$card['old-price'].' ₽"':'';?>></button>
+		<button class="card__btn"></button>
 	</div>
 </div>

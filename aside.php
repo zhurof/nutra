@@ -58,7 +58,7 @@
 				<div class="small-card__footer">
 					<span class="small-card__old-price">310 ₽</span>
 					<span class="small-card__price">230 ₽</span>
-					<a href="#" data-modal="order" data-img="img/goods/8.jpg" data-title="Alcotox" data-price="230 ₽" data-old-price="310 ₽" class="small-card__btn icon-cart"></a>
+					<a href="#" class="small-card__btn icon-cart"></a>
 				</div>
 			</div>
 			<div class="small-card">
@@ -70,7 +70,7 @@
 				<div class="small-card__footer">
 					<span class="small-card__old-price">210 ₽</span>
 					<span class="small-card__price">190 ₽</span>
-					<a href="#" data-modal="order" data-img="img/goods/1.jpg" data-title="Psorifort" data-price="190 ₽" data-old-price="210 ₽" class="small-card__btn icon-cart"></a>
+					<a href="#" class="small-card__btn icon-cart"></a>
 				</div>
 			</div>
 			<div class="small-card">
@@ -82,7 +82,7 @@
 				<div class="small-card__footer">
 					<span class="small-card__old-price">1210 ₽</span>
 					<span class="small-card__price">990 ₽</span>
-					<a href="#" data-modal="order" data-img="img/goods/6.jpg" data-title="Miracle Glow" data-price="990 ₽" data-old-price="1210 ₽" class="small-card__btn icon-cart"></a>
+					<a href="#" class="small-card__btn icon-cart"></a>
 				</div>
 			</div>
 			<div class="small-card">
@@ -94,7 +94,7 @@
 				<div class="small-card__footer">
 					<span class="small-card__old-price">760 ₽</span>
 					<span class="small-card__price">570 ₽</span>
-					<a href="#" data-modal="order" data-img="img/goods/0.jpg" data-title="Alcotox" data-price="570 ₽" data-old-price="760 ₽" class="small-card__btn icon-cart"></a>
+					<a href="#" class="small-card__btn icon-cart"></a>
 				</div>
 			</div>
 		</div>

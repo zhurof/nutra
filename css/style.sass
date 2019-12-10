@@ -307,6 +307,64 @@ select
 		color: $green
 		user-select: none
 		cursor: pointer
+.rating-field
+	display: flex
+	color: $gray
+	align-items: center
+	justify-content: space-between
+	flex-wrap: wrap
+	&__label
+		display: inline-block
+		margin-right: 1em
+	&__star
+		appearance: none
+		display: inline-block
+		width: auto
+		height: auto
+		font: normal normal 20px/1 icomoon
+		border: none
+		border-radius: 0
+		padding: 0
+		color: $yellow
+		margin-left: 10px
+		transition: all .1s ease
+		&:before
+			content: '\e916'
+		&:checked
+			background: none
+			& ~ .rating-field__star
+				color: $gray
+	&__body
+		display: flex
+		align-items: center
+.userpic-field
+	display: block
+	width: 70px
+	height: 70px
+	flex: 0 0 auto
+	border-radius: 50%
+	position: relative
+	background: url(../img/icons/user.svg) no-repeat center/cover
+	margin: 0 0 15px
+	cursor: pointer
+	&:after
+		content: '+'
+		font-size: 20px
+		font-weight: bold
+		color: #fff
+		line-height: 30px
+		text-align: center
+		display: block
+		width: 30px
+		height: 30px
+		border-radius: 50%
+		position: absolute
+		bottom: -15px
+		left: calc(50% - 15px)
+		background: linear-gradient(to bottom,$green,$dark-green)
+	&__input
+		+pos
+		opacity: 0
 		
 /*кнопки*/
 button,
@@ -354,6 +412,19 @@ button,
 		display: block
 		width: 100%
 		padding: 0 10px
+	&--cart:after
+		content: '\e908'
+		font-family: icomoon
+		font-size: 20px
+		font-weight: 400
+		display: inline-block
+		margin: 0 0 0 10px
+		vertical-align: -4px
+	&--huge
+		font-size: 16px
+		line-height: 78px
+		margin: 80px 0 40px
+		text-transform: uppercase
 
 /*заголовки*/
 h1,h2,h3,h4,h5,h6
@@ -423,7 +494,7 @@ table
 	text-align: center
 	padding: 40px
 	max-width: 100%
-	margin: 0 auto
+	margin: auto
 	flex: 0 0 auto
 	position: relative
 	&__close
@@ -731,6 +802,12 @@ table
 		margin: 0 .2em
 		&--active
 			color: $yellow
+	&__text
+		display: inline-block
+		font-size: 18px
+		font-weight: bold
+		vertical-align: middle
+		margin-left: 1.3em
 .card
 	width: 282px
 	margin: 0 15px 30px
@@ -868,6 +945,11 @@ table
 		background-color: #f3f5ed
 		padding: 80px 0
 		margin: 0 0 40px
+	&--desktop-hidden
+		display: none
+	&--small
+		&:last-child
+			padding-bottom: 40px
 	&__head
 		display: flex
 		align-items: center
@@ -1193,6 +1275,9 @@ table
 .article
 	background-color: #fff
 	padding: 64px 60px 60px
+	margin: 0 0 30px
+	&:last-child
+		margin-bottom: 0
 	h1,h2
 		text-transform: uppercase
 		margin: 0 0 .9em
@@ -1417,8 +1502,327 @@ table
 				content: ' 'attr(data-currency)
 	&__form
 		padding-bottom: 0
-
-
+.good
+	background-color: #fff
+	padding: 57px 60px 60px
+	margin: 0 0 30px
+	&__head
+		display: flex
+		align-items: center
+		justify-content: space-between
+		flex-wrap: wrap
+	&__id
+		color: $gray
+		font-size: 18px
+		margin: 0 1em 1em 0
+		strong
+			color: #343d43
+	&__status
+		font-size: 18px
+		font-weight: bold
+		margin: 0 auto 1em
+		&:before
+			content: ''
+			display: inline-block
+			width: 12px
+			height: 12px
+			border-radius: 50%
+			vertical-align: middle
+			background-color: currentColor
+			margin-right: .8em
+		&--in-stock:before
+			background-color: $green
+	&__title
+		width: 100%
+		text-transform: uppercase
+		margin: .5em 0 1em
+	&__rating
+		margin: 0 0 18px 53px
+		&--mobile
+			display: none
+	&__body
+		display: flex
+		align-items: flex-start
+	&__pic
+		width: calc(50% + 36.5px)
+		flex: 0 0 auto
+	&__text
+		width: calc(50% + 36.5px)
+		flex: 1 1 auto
+		padding-left: 30px
+	&__slider
+		margin-top: 4px
+		.slick-list
+			border: 1px solid #f9f9f5
+	&__slide
+		position: relative
+		&:not(.slick-slide)
+			border: 1px solid #f9f9f5
+			&:nth-child(n+2)
+				display: none
+		&:before
+			content: ''
+			display: block
+			padding-top: 100%
+		img
+			display: block
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%,-50%)
+			max-height: 100%
+	&__arrow
+		display: inline-block
+		width: 50px
+		height: 50px
+		border-radius: 50%
+		color: #e4e4e4
+		border: 2px solid
+		font-size: 15px
+		line-height: 46px
+		text-align: center
+		cursor: pointer
+		position: absolute
+		z-index: 2
+		top: 190px
+		&--prev
+			left: 30px
+		&--next
+			right: 30px
+	&__dots
+		+unlist
+		display: flex
+		flex-wrap: wrap
+		margin: 0 -4px
+		>li
+			width: 101px
+			height: 101px
+			margin: 10px 4px 0
+			position: relative
+			border: 1px solid #f9f9f5
+			outline-offset: -2px
+			&.slick-active
+				outline: 2px solid $green
+			img
+				display: block
+				position: absolute
+				top: 50%
+				left: 50%
+				transform: translate(-50%,-50%)
+				max-height: calc(100% - 30px)
+				max-width: calc(100% - 30px)
+	&__price-block
+		display: flex
+		align-items: flex-end
+		justify-content: space-between
+		margin: 0 0 20px
+	&__price-wrapper
+		font-size: 13px
+		line-height: normal
+		color: $gray
+		line-height: 30px
+	&__old-price
+		font-size: 16px
+		text-decoration: line-through
+		font-weight: bold
+	&__price
+		font-size: 30px
+		line-height: 1
+		color: #343d43
+		font-weight: 600
+		margin: 0 0 8px
+	&__order
+		text-align: center
+		margin: 0 0 37px
+	&__btn
+		margin: 0 0 18px
+	&__tools
+		padding: 26px 0 23px
+		border-top: 1px solid #efeee7
+		display: flex
+		align-items: center
+		justify-content: space-between
+		font-weight: bold
+	&__favourites
+		user-select: none
+		cursor: pointer
+		&:before
+			content: '\e90f'
+			font-family: icomoon
+			font-size: 20px
+			line-height: 1.2
+			color: $gray
+			font-weight: 400
+			margin-right: 15px
+			vertical-align: middle
+		&--active:before
+			content: '\e90e'
+			color: $red
+	&__collation
+		user-select: none
+		cursor: pointer
+		&:before
+			content: '\e910'
+			display: inline-block
+			font-family: icomoon
+			font-size: 20px
+			color: $gray
+			margin-right: 16px
+			vertical-align: middle
+		&--active:before
+			color: $red
+	&__info
+		border-top: 1px solid #efeee7
+		padding: 39px 0
+		&-item
+			display: flex
+			align-items: flex-start
+			color: $gray
+			margin: 0 0 1.5em
+			&:last-child
+				margin-bottom: 0
+		&-icon
+			font-size: 32px
+			flex: 0 0 auto
+			margin-right: 18px
+		&-text
+			flex: 1 1 auto
+		&-title
+			color: #343d43
+			font: inherit
+			font-weight: bold
+			margin: 0 0 .3em
+.media-block
+	padding: 60px 60px 60px
+	background-color: #fff
+	display: flex
+	align-items: flex-start
+	justify-content: space-between
+	&__column
+		flex-basis: calc(50% - 30px)
+	&__subtitle
+		margin: 0 0 .8em
+	&__video
+		display: block
+		width: 100%
+		position: relative
+		background-color: #343d43
+		&:before
+			content: ''
+			display: block
+			position: absolute
+			z-index: 1
+			top: calc(50% - 31px)
+			left: calc(50% - 13px)
+			border-left: 26px solid #fff
+			border-top: 31px solid transparent
+			border-bottom: 31px solid transparent
+		img
+			display: block
+			width: 100%
+			opacity: .2
+	&__audio
+		display: block
+		margin: 0 0 10px
+		&:last-child
+			margin-bottom: 0
+.review
+	display: flex
+	align-items: flex-start
+	padding: 45px 30px 40px 40px
+	background-color: #fff
+	margin: 0 0 10px
+	&:last-child
+		margin-bottom: 0
+	&__pic
+		width: 100px
+		flex: 0 0 auto
+		margin: 0 37px 0 0
+		position: relative
+	&__img
+		display: block
+		width: 100%
+		height: 100px
+		border-radius: 50%
+		+obj
+	&__country
+		display: block
+		position: absolute
+		top: -5px
+		right: -5px
+		width: 29px
+		height: 29px
+		border-radius: 50%
+		+obj
+	&__head
+		display: flex
+		align-items: center
+		margin: 0 0 15px
+	&__title
+		font-size: 18px
+		margin: 0 30px 0 0
+	&__date
+		color: $gray
+		margin-right: 25px
+	&__rating
+		margin-right: 20px
+	&__vote
+		margin-left: auto
+		font-size: 16px
+		line-height: 1
+		white-space: nowrap
+		flex: 0 0 auto
+		user-select: none
+	&__increase
+		color: $green
+		cursor: pointer
+		vertical-align: top
+		margin-right: 1.1em
+		&--active
+			&:before
+				content: '\e917'
+	&__decrease
+		color: $red
+		cursor: pointer
+		vertical-align: middle
+		margin-right: .6em
+		&--active
+			&:before
+				content: '\e918'
+	&__body
+		color: $gray
+.reviews
+	padding: 40px 0
+	&__head
+		display: flex
+		align-items: center
+		justify-content: space-between
+		margin: 0 0 30px
+	&__title
+		margin: 0 1em 0 0
+		text-transform: uppercase
+	&__btn
+		flex: 0 0 auto
+.review-form
+	width: 420px
+	max-width: 100%
+	padding-top: 10px
+	&__title
+		text-transform: uppercase
+		margin: 0 0 1.1em
+	&__inner
+		display: flex
+		align-items: flex-start
+		margin: 0 0 38px
+	&__pic
+		margin-right: 30px
+		margin-top: 13px
+	&__main
+		flex: 1 1 calc(100% - 100px)
+	&__rating
+		margin-top: 29px
+	&__btn
+		margin-top: 30px
 /*ПОДВАЛ*/
 .footer
 	background-color: #fff

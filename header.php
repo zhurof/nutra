@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="css/fonts.css" />	
 	<link rel="stylesheet" href="css/font-awesome.css" />
 	<link rel="stylesheet" href="libs/slick/slick.css" />
+	<link rel="stylesheet" href="libs/fancybox/jquery.fancybox.min.css" />
 	<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -16,10 +17,10 @@
 				<i class="icon-close header__close-btn"></i>
 				<!-- Дублируем основное меню в этом блоке ибо его удобнее всего использовать как мобильное меню -->
 				<ul class="header__menu header__menu--mobile">
-					<li><a href="#">Главная</a></li>
-					<li><a href="#">Доставка и оплата</a></li>
-					<li><a href="#">Акции</a></li>
-					<li><a href="#">Контакты</a></li>
+					<li><a href="contacts.php">Главная</a></li>
+					<li><a href="info.php">Доставка и оплата</a></li>
+					<li><a href="info.php">Акции</a></li>
+					<li><a href="contacts.php">Контакты</a></li>
 				</ul>
 				<div class="header__info">
 					<div class="header__text"><em>Время работы&nbsp;&nbsp;</em> Ежедневно, 24/7</div>
@@ -45,10 +46,10 @@
 				<a href="/" class="logo header__logo"><img src="img/logo.svg" alt=""></a>
 				<span class="menu-btn"></span>
 				<ul class="header__menu">
-					<li><a href="#">Главная</a></li>
-					<li><a href="#">Доставка и оплата</a></li>
-					<li><a href="#">Акции</a></li>
-					<li><a href="#">Контакты</a></li>
+					<li><a href="/">Главная</a></li>
+					<li><a href="info.php">Доставка и оплата</a></li>
+					<li><a href="info.php">Акции</a></li>
+					<li><a href="contacts.php">Контакты</a></li>
 				</ul>
 				<div class="header__tools">
 					<a href="#" class="header__tool" data-amount="2">
@@ -118,48 +119,48 @@
 						<div class="catalog-menu__item">
 							<h4 class="catalog-menu__title">Для женщин</h4>
 							<ul class="catalog-menu__menu">
-								<li><a href="#">Варикоз, атеросклероз</a></li>
-								<li><a href="#">Витаминные, для глаз и волос</a></li>
-								<li><a href="#">Вредные привычки</a></li>
-								<li><a href="#">Гипертонические</a></li>
-								<li><a href="#">Грудные, щитовидка</a></li>
+								<li><a href="catalog.php">Варикоз, атеросклероз</a></li>
+								<li><a href="catalog.php">Витаминные, для глаз и волос</a></li>
+								<li><a href="catalog.php">Вредные привычки</a></li>
+								<li><a href="catalog.php">Гипертонические</a></li>
+								<li><a href="catalog.php">Грудные, щитовидка</a></li>
 							</ul>
 						</div>
 						<div class="catalog-menu__item">
 							<h4 class="catalog-menu__title">Для мужчин</h4>
 							<ul class="catalog-menu__menu">
-								<li><a href="#">Для похудения</a></li>
-								<li><a href="#">Для мужчин</a></li>
-								<li><a href="#">Для женщин</a></li>
-								<li><a href="#">Крепкий иммунитет, будь в тонусе</a></li>
-								<li><a href="#">От вредных привычек</a></li>
+								<li><a href="catalog.php">Для похудения</a></li>
+								<li><a href="catalog.php">Для мужчин</a></li>
+								<li><a href="catalog.php">Для женщин</a></li>
+								<li><a href="catalog.php">Крепкий иммунитет, будь в тонусе</a></li>
+								<li><a href="catalog.php">От вредных привычек</a></li>
 							</ul>
 						</div>
 						<div class="catalog-menu__item">
 							<h4 class="catalog-menu__title">Для женщин</h4>
 							<ul class="catalog-menu__menu">
-								<li><a href="#">Для похудения</a></li>
-								<li><a href="#">Для мужчин</a></li>
-								<li><a href="#">Для женщин</a></li>
-								<li><a href="#">Крепкий иммунитет, будь в тонусе</a></li>
-								<li><a href="#">От вредных привычек</a></li>
+								<li><a href="catalog.php">Для похудения</a></li>
+								<li><a href="catalog.php">Для мужчин</a></li>
+								<li><a href="catalog.php">Для женщин</a></li>
+								<li><a href="catalog.php">Крепкий иммунитет, будь в тонусе</a></li>
+								<li><a href="catalog.php">От вредных привычек</a></li>
 							</ul>
 						</div>
 						<div class="catalog-menu__item">
 							<h4 class="catalog-menu__title">Зависимости</h4>
 							<ul class="catalog-menu__menu">
-								<li><a href="#">Варикоз, атеросклероз</a></li>
-								<li><a href="#">Витаминные, для глаз и волос</a></li>
-								<li><a href="#">Вредные привычки</a></li>
-								<li><a href="#">Гипертонические</a></li>
-								<li><a href="#">Грудные, щитовидка</a></li>
+								<li><a href="catalog.php">Варикоз, атеросклероз</a></li>
+								<li><a href="catalog.php">Витаминные, для глаз и волос</a></li>
+								<li><a href="catalog.php">Вредные привычки</a></li>
+								<li><a href="catalog.php">Гипертонические</a></li>
+								<li><a href="catalog.php">Грудные, щитовидка</a></li>
 							</ul>
 						</div>
 						<div class="catalog-menu__item">
 							<ul class="catalog-menu__menu catalog-menu__menu--strong">
-								<li><a href="#">Низкая цена</a></li>
-								<li><a href="#">Другие товары</a></li>
-								<li><a href="#">Категории без вложений</a></li>
+								<li><a href="catalog.php">Низкая цена</a></li>
+								<li><a href="catalog.php">Другие товары</a></li>
+								<li><a href="catalog.php">Категории без вложений</a></li>
 							</ul>
 						</div>
 					</div>
