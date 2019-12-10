@@ -32,12 +32,38 @@
 					<div class="select select--simple header__language" tabindex="0">
 						<select name="language" class="select__input" tabindex="-1">
 							<option>РУС</option>
-							<option>EN</option>
+							<option>UK</option>
+							<option>AG</option>
+							<option>AUS</option>
+							<option>BE</option>
+							<option>FI</option>
+							<option>УКР</option>
+							<option>AU</option>
+							<option>БЕ</option>
+							<option>BR</option>
+							<option>BL</option>
+							<option>CA</option>
+							<option>CN</option>
+							<option>ES</option>
+							<option>USA</option>
 						</select>
 						<div class="select__output"><img class="select__icon" src="img/countries/russia.svg" alt=""> <span>РУС</span></div>
 						<ul class="select__list">
 							<li><img class="select__icon" src="img/countries/russia.svg" alt=""> <span>РУС</span></li>
-							<li><img class="select__icon" src="img/countries/england.svg" alt=""> <span>EN</span></li>
+							<li><img class="select__icon" src="img/countries/united-kingdom.svg" alt=""> <span>UK</span></li>
+							<li><img class="select__icon" src="img/countries/argentina.svg" alt=""> <span>AG</span></li>
+							<li><img class="select__icon" src="img/countries/australia.svg" alt=""> <span>AUS</span></li>
+							<li><img class="select__icon" src="img/countries/belgium.svg" alt=""> <span>BE</span></li>
+							<li><img class="select__icon" src="img/countries/finland.svg" alt=""> <span>FI</span></li>
+							<li><img class="select__icon" src="img/countries/ukraine.svg" alt=""> <span>УКР</span></li>
+							<li><img class="select__icon" src="img/countries/austria.svg" alt=""> <span>AU</span></li>
+							<li><img class="select__icon" src="img/countries/belarus.svg" alt=""> <span>БЕ</span></li>
+							<li><img class="select__icon" src="img/countries/brazil.svg" alt=""> <span>BR</span></li>
+							<li><img class="select__icon" src="img/countries/bulgaria.svg" alt=""> <span>BL</span></li>
+							<li><img class="select__icon" src="img/countries/canada.svg" alt=""> <span>CA</span></li>
+							<li><img class="select__icon" src="img/countries/china.svg" alt=""> <span>CN</span></li>
+							<li><img class="select__icon" src="img/countries/estonia.svg" alt=""> <span>ES</span></li>
+							<li><img class="select__icon" src="img/countries/usa.svg" alt=""> <span>USA</span></li>
 						</ul>
 					</div>
 				</div>
