@@ -1,47 +1,47 @@
 <aside class="sidebar sidebar-page__sidebar">
 	<ul class="sidebar__menu">
 		<li>
-			<a href="#" class="active">Для женщин</a>
+			<a href="catalog.php" class="active">Для женщин</a>
 			<ul style="display:block;">
-				<li><a href="#">Варикоз, атеросклероз</a></li>
-				<li><a href="#">Витаминные, для глаз и волос</a></li>
-				<li><a href="#">Вредные привычки</a></li>
-				<li><a href="#">Гипертонические</a></li>
-				<li><a href="#">Грудные, щитовидка</a></li>
+				<li><a href="catalog.php">Варикоз, атеросклероз</a></li>
+				<li><a href="catalog.php">Витаминные, для глаз и волос</a></li>
+				<li><a href="catalog.php">Вредные привычки</a></li>
+				<li><a href="catalog.php">Гипертонические</a></li>
+				<li><a href="catalog.php">Грудные, щитовидка</a></li>
 			</ul>
 		</li>
 		<li>
-			<a href="#" class="active">Для мужчин</a>
+			<a href="catalog.php" class="active">Для мужчин</a>
 			<ul style="display:block;">
-				<li><a href="#">Для похудения</a></li>
-				<li><a href="#">Для мужчин</a></li>
-				<li><a href="#">Для женщин</a></li>
-				<li><a href="#">Крепкий иммунитет, будь в тонусе</a></li>
-				<li><a href="#">От вредных привычек</a></li>
+				<li><a href="catalog.php">Для похудения</a></li>
+				<li><a href="catalog.php">Для мужчин</a></li>
+				<li><a href="catalog.php">Для женщин</a></li>
+				<li><a href="catalog.php">Крепкий иммунитет, будь в тонусе</a></li>
+				<li><a href="catalog.php">От вредных привычек</a></li>
 			</ul>
 		</li>
 		<li>
-			<a href="#">Для здоровья</a>
+			<a href="catalog.php">Для здоровья</a>
 			<ul>
-				<li><a href="#">Для похудения</a></li>
-				<li><a href="#">Для мужчин</a></li>
-				<li><a href="#">Для женщин</a></li>
-				<li><a href="#">Крепкий иммунитет, будь в тонусе</a></li>
-				<li><a href="#">От вредных привычек</a></li>
+				<li><a href="catalog.php">Для похудения</a></li>
+				<li><a href="catalog.php">Для мужчин</a></li>
+				<li><a href="catalog.php">Для женщин</a></li>
+				<li><a href="catalog.php">Крепкий иммунитет, будь в тонусе</a></li>
+				<li><a href="catalog.php">От вредных привычек</a></li>
 			</ul>
 		</li>
 		<li>
-			<a href="#">Зависимости</a>
+			<a href="catalog.php">Зависимости</a>
 			<ul>
-				<li><a href="#">Варикоз, атеросклероз</a></li>
-				<li><a href="#">Витаминные, для глаз и волос</a></li>
-				<li><a href="#">Вредные привычки</a></li>
-				<li><a href="#">Гипертонические</a></li>
-				<li><a href="#">Грудные, щитовидка</a></li>
+				<li><a href="catalog.php">Варикоз, атеросклероз</a></li>
+				<li><a href="catalog.php">Витаминные, для глаз и волос</a></li>
+				<li><a href="catalog.php">Вредные привычки</a></li>
+				<li><a href="catalog.php">Гипертонические</a></li>
+				<li><a href="catalog.php">Грудные, щитовидка</a></li>
 			</ul>
 		</li>
-		<li><a href="#">Низкая цена</a></li>
-		<li><a href="#">Другие товары</a></li>
+		<li><a href="catalog.php">Низкая цена</a></li>
+		<li><a href="catalog.php">Другие товары</a></li>
 	</ul>
 	<a href="#" class="banner-widget">
 		<img src="img/banner.jpg" alt="">
