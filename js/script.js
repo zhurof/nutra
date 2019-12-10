@@ -69,6 +69,7 @@ $('.category-block').each(function(index,element){
 		slidesToShow: 4,
 		tablet: 3
 	}
+	//Подобные блоки есть как на страницах с сайдбаром, так и без. В них разное количество карточек, поэтому проверяем
 	if($(this).is('.category-block--small')){
 		customOptions.slidesToShow = 3;
 		customOptions.tablet = 2;
@@ -106,63 +107,25 @@ $('.card__favourites').click(function(){
 $('.card__collation').click(function(){
 	$(this).toggleClass('card__collation--active')
 })
-//Модальные окна
-function openModal(modalId, initiator){  
-  var scrollWidth = window.innerWidth - document.body.clientWidth;//Ширина полосы прокрутки
-  
-	$('.modal-wrapper').children().unwrap();
-	if(!$('#'+modalId).length){
-		alert('Ошибка вызова модального окна');
-		return false;
-	}
-	$('#'+modalId).trigger('beforeModalShow',initiator).wrap('<div class="modal-wrapper" style="display:none" />');
-	$('.modal-wrapper').fadeIn(400,function(){
-    $('#'+modalId).trigger('afterModalShow',initiator);
-  });	
-	if(scrollWidth){
-		$('html').css('padding-right',scrollWidth);
-		$('body').css('overflow-y','hidden');
-	}
-}
-function closeModal(){
-	$('.modal-wrapper').fadeOut(200, function(){
-		$('html').css('padding-right','');
-		$('body').css('overflow-y','');
-	});
-}
-$(document).on('click', '[data-modal]', function(e){
-	e.preventDefault();
-	var modal = $(this).data('modal');
-	openModal(modal,e.target);
-})
-$(document).on('click', '.modal__close', closeModal);
-
-$(document).on('mousedown', '.modal-wrapper', function(e){
-	if(!$('.modal').is(e.target) && $('.modal').has(e.target).length === 0){
-		closeModal();
-	}
-})
-$(document).keydown(function(e){
-	//Закрытие окна на Esc
-	if(e.which == 27){
-		closeModal();
-	}
-});
 //подтягивание данных в модальнео окно заказа
-$('#order').on('beforeModalShow',function(e,initiator){
-	var image = $(initiator).data('img'),
-			title = $(initiator).data('title'),
-			price = $(initiator).data('price'),
-			oldPrice = $(initiator).data('old-price') || '';
-	$(this).find('.order-form__img').css('background-image','url('+image+')');
-	$(this).find('.order-form__good-title').text(title);
-	$(this).find('[name=good]').val(title);
-	$(this).find('.order-form__price').text(price);
-	$(this).find('.order-form__total-price').text(price.replace(/\D/g,''));
-	$(this).find('.order-form__old-price').text(oldPrice);
-	$(this).find('.order-form__amount input').each(function(){
-		this.value = this.min || 1;
-	});
+$(document).on('afterLoad.fb',function(e, instance, slide){
+	if(slide.src == "#order"){
+		
+		var image = slide.opts.$orig.data('img'),
+				title = slide.opts.$orig.data('title'),
+				price = slide.opts.$orig.data('price'),
+				oldPrice = slide.opts.$orig.data('old-price') || '';
+			
+		slide.$slide.find('.order-form__img').css('background-image','url('+image+')');
+		slide.$slide.find('.order-form__good-title').text(title);
+		slide.$slide.find('[name=good]').val(title);
+		slide.$slide.find('.order-form__price').text(price);
+		slide.$slide.find('.order-form__total-price').text(price.replace(/\D/g,''));
+		slide.$slide.find('.order-form__old-price').text(oldPrice);
+		slide.$slide.find('.order-form__amount input').each(function(){
+			this.value = this.min || 1;
+		});
+	}
 })
 //расчет суммы в модальном окне
 $('.order-form__amount input').on('input change',function(){
@@ -197,7 +160,7 @@ function initMap(){
 		objectManager.add(data);
 	});
 }
-
+//функция для перемещения по карте при клике, например, по ссылке
 function flyTo(coords){
 	coordsArray = coords.split(/\s?,\s?/);
 	coordsArray.forEach(function(element,index){
@@ -206,8 +169,7 @@ function flyTo(coords){
 	if(myMap){
 		$('html,body').animate({scrollTop: $('#map').offset().top},500);
 		myMap.panTo(coordsArray);
-	}
-	
+	}	
 	return false;
 }
 //Корзина

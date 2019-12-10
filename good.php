@@ -55,7 +55,7 @@
 									</div>
 									<div class="good__order">
 										<button class="btn btn--oval btn--block btn--cart good__btn">Купить</button>
-										<a href="#" data-modal="order" class="good__link" data-img="img/goods/8.jpg" data-title="Anti Toxin Nano - капли от паразитов" data-price="1 190 ₽" data-old-price="1 300 ₽">Купить в 1 клик</a>
+										<a href="#order" class="good__link" data-fancybox data-img="img/goods/8.jpg" data-title="Anti Toxin Nano - капли от паразитов" data-price="1 190 ₽" data-old-price="1 300 ₽">Купить в 1 клик</a>
 									</div>
 									<div class="good__tools">
 										<span class="good__favourites">Избранное</span>
@@ -123,12 +123,12 @@
 								<audio src="/audio.mp3" class="media-block__audio" controls></audio>
 							</div>
 						</div>
-						<button class="btn btn--block btn--oval btn--huge" data-modal="order" data-img="img/goods/8.jpg" data-title="Anti Toxin Nano - капли от паразитов" data-price="1 190 ₽" data-old-price="1 300 ₽">Купить в один клик</button>
+						<a href="#order" class="btn btn--block btn--oval btn--huge" data-fancybox data-img="img/goods/8.jpg" data-title="Anti Toxin Nano - капли от паразитов" data-price="1 190 ₽" data-old-price="1 300 ₽">Купить в один клик</a>
 						<!-- этот блок только для полной версии сайта, в мобильной (ниже 992px) заменяется типовым блоком со слайдером карточек -->
 						<div class="reviews">
 							<div class="reviews__head">
 								<h2 class="reviews__title">Отзывы о товаре</h2>
-								<button class="btn btn--oval btn--thin" data-modal="review">Оставить отзыв</button>								
+								<a href="#review" class="btn btn--oval btn--thin" data-fancybox>Оставить отзыв</a>								
 							</div>
 							<div class="reviews__body">
 								<div class="review">
@@ -287,7 +287,7 @@
 						<div class="category-block category-block--small category-block--desktop-hidden">
 							<div class="category-block__head">
 								<h2 class="category-block__title">Отзывы о товаре</h2>
-								<a href="#" class="btn btn--oval btn--thin category-block__btn" data-modal="review">Оставить отзыв</a>
+								<a href="#review" class="btn btn--oval btn--thin category-block__btn" data-fancybox>Оставить отзыв</a>
 								<div class="category-block__nav"></div>
 							</div>
 							<div class="category-block__slider">

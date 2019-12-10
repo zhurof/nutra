@@ -28,7 +28,7 @@
 					<div class="header__text"><a href="mailto:greennutrashop@info.ru">greennutrashop@info.ru</a></div>
 				</div>
 				<div class="header__options">
-					<div class="header__location" data-modal="location">Санкт-Петербург</div>
+					<a href="#location" class="header__location" data-fancybox>Санкт-Петербург</a>
 					<div class="select select--simple header__language" tabindex="0">
 						<select name="language" class="select__input" tabindex="-1">
 							<option>РУС</option>

@@ -93,7 +93,6 @@
 		</div>
 	</footer>
 	<div class="modal" id="order">
-		<span class="icon-close modal__close"></span>
 		<form action="" class="order-form">
 			<h3 class="order-form__title">Купить в 1 клик</h3>
 			<div class="order-form__img" style="background-image:url(img/goods/6.jpg)"></div>
@@ -122,7 +121,6 @@
 		</form>
 	</div>
 	<div class="modal" id="location">
-		<span class="icon-close modal__close"></span>
 		<div class="location">
 			<h3 class="location__title">Выберите город</h3>
 			<input type="search" class="location__input" placeholder="Введите название города" />
@@ -167,7 +165,6 @@
 		</div>
 	</div>
 	<div class="modal" id="review">
-		<span class="icon-close modal__close"></span>
 		<form class="review-form">
 			<h3 class="review-form__title">Оставить отзыв</h3>
 			<div class="review-form__inner">
@@ -183,7 +180,7 @@
 							<input type="radio" name="rating" value="2" class="rating-field__star">
 							<input type="radio" name="rating" value="3" class="rating-field__star">
 							<input type="radio" name="rating" value="4" class="rating-field__star">
-							<input type="radio" name="rating" value="5" class="rating-field__star">
+							<input type="radio" name="rating" value="5" class="rating-field__star" checked>
 						</span>
 					</span>
 				</div>
